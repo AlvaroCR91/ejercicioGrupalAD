@@ -131,4 +131,29 @@ public class PeriodistaDAO implements Serializable {
         }
     }
 
+    public List<Periodista> findPeriodistasSinArticulos_JPQL() {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Periodista> query = em.createQuery(
+                    "SELECT p FROM Periodista p WHERE p.articulos IS EMPTY",
+                    Periodista.class
+            );
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    public List<Periodista> findPeriodistasMasDeDosArticulos_JPQL() {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery<Periodista> query = em.createQuery(
+                    "SELECT p FROM Periodista p WHERE SIZE(p.articulos) > 2",
+                    Periodista.class
+            );
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 }
