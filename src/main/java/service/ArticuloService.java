@@ -1,4 +1,4 @@
-package service.Articulo;
+package service;
 
 public class ArticuloService {
 }
