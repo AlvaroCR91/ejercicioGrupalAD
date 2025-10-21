@@ -1,0 +1,16 @@
+# Maven build
+/target/
+
+# IDE
+/.idea/
+/*.iml
+/.vscode/
+
+# OS
+.DS_Store
+
+# JPA config (no versionar el runtime persistence.xml)
+ /src/main/resources/META-INF/persistence.xml
+
+# ejemplo a commitear
+persistence.xml.example

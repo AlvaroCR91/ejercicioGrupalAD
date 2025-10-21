@@ -3,10 +3,7 @@ package es.fempa.acd;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import jakarta.persistence.*;
 
 /**
  * Entidad Periodista con nombre, dni y teléfono. Además tendrá una lista
