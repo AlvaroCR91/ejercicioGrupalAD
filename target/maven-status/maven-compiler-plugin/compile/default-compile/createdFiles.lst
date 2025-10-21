@@ -1,0 +1,7 @@
+es\fempa\acd\Main.class
+es\fempa\acd\PeriodistaDAO.class
+es\fempa\acd\PreexistingEntityException.class
+es\fempa\acd\Periodista.class
+es\fempa\acd\ArticuloDAO.class
+es\fempa\acd\Articulo.class
+es\fempa\acd\NonexistentEntityException.class
