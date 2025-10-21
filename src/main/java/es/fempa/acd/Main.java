@@ -3,6 +3,10 @@ package es.fempa.acd;
 import java.util.List;
 import java.util.Scanner;
 import jakarta.persistence.*;
+import model.Articulo;
+import model.Periodista;
+import repository.ArticuloDAO;
+import repository.PeriodistaDAO;
 
 public class Main {
 

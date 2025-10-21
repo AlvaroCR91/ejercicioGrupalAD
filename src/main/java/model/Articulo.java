@@ -1,5 +1,5 @@
 
-package es.fempa.acd;
+package model;
 
 import java.io.Serializable;
 import jakarta.persistence.*;

@@ -1,10 +1,13 @@
-package es.fempa.acd;
+package repository;
 
 import java.io.Serializable;
 import java.util.List;
+
+import es.fempa.acd.NonexistentEntityException;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
+import model.Articulo;
 
 public class ArticuloDAO implements Serializable {
 
