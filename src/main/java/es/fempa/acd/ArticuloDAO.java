@@ -2,12 +2,9 @@ package es.fempa.acd;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 public class ArticuloDAO implements Serializable {
 
@@ -89,7 +86,7 @@ public class ArticuloDAO implements Serializable {
     private List<Articulo> findArticuloEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Articulo> cq = em.getCriteriaBuilder().createQuery(Articulo.class);
             cq.select(cq.from(Articulo.class));
             Query q = em.createQuery(cq);
             if (!all) {
@@ -101,6 +98,7 @@ public class ArticuloDAO implements Serializable {
             em.close();
         }
     }
+
 
     public Articulo findArticulo(Integer id) {
         EntityManager em = getEntityManager();
@@ -114,7 +112,7 @@ public class ArticuloDAO implements Serializable {
     public int getArticuloCount() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Long> cq = em.getCriteriaBuilder().createQuery(Long.class);
             Root<Articulo> rt = cq.from(Articulo.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);

@@ -2,9 +2,7 @@
 package es.fempa.acd;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 
 /**
  * Entidad Articulo con título, anyo de publicación y número de palabras.

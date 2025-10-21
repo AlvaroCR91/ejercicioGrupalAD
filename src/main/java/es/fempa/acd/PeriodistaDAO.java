@@ -2,12 +2,9 @@ package es.fempa.acd;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 public class PeriodistaDAO implements Serializable {
 
@@ -94,7 +91,7 @@ public class PeriodistaDAO implements Serializable {
     private List<Periodista> findPeriodistaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Periodista> cq = em.getCriteriaBuilder().createQuery(Periodista.class);
             cq.select(cq.from(Periodista.class));
             Query q = em.createQuery(cq);
             if (!all) {
@@ -106,6 +103,7 @@ public class PeriodistaDAO implements Serializable {
             em.close();
         }
     }
+
 
     public Periodista findPeriodista(String id) {
         EntityManager em = getEntityManager();
@@ -119,7 +117,7 @@ public class PeriodistaDAO implements Serializable {
     public int getPeriodistaCount() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Long> cq = em.getCriteriaBuilder().createQuery(Long.class);
             Root<Periodista> rt = cq.from(Periodista.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
@@ -127,5 +125,6 @@ public class PeriodistaDAO implements Serializable {
         } finally {
             em.close();
         }
-    }    
+    }
+
 }
